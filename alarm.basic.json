@@ -1,0 +1,6 @@
+[
+	{ "device":1, "type":"file", "value":"lib/resources/alarm1.wav", "command":"idle" },
+	{ "device":2, "type":"file", "value":"lib/resources/noise.wav", "command":"idle" },
+	{ "device":3, "type":"radio", "value":"http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u", "command":"idle" },
+	{ "device":3, "type":"radio", "value":"http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u", "command":"stop" }
+]
