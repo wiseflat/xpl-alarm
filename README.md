@@ -1,10 +1,6 @@
 # xpl-alarm
 Node JS layer to execute mplayer through xPL
 
-## Objective
-
-Node JS layer to execute mplayer through xPL
-
 ## Installation
 
     $ git clone https://github.com/wiseflat/xpl-alarm.git
