@@ -1,4 +1,5 @@
 var xplalarm = require("./lib/xpl-alarm");
+var schema_alarmbasic = require('/etc/wiseflat/schemas/alarm.basic.json');
 
 var wt = new xplalarm(null, {
 	//xplSource: 'bnz-shell.wiseflat'
@@ -12,6 +13,8 @@ wt.init(function(error, xpl) {
 		return;
 	}
         
+	xpl.addBodySchema(schema_alarmbasic.id, schema_alarmbasic.definitions.body);
+
         // Load config file into hash
         wt.readConfig();
         wt.readBasic();
