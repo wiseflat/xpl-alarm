@@ -36,7 +36,7 @@ wt.init(function(error, xpl) {
         }); */
 
         xpl.on("xpl:alarm.basic", function(evt) {
-                if(evt.headerName == 'xpl-cmnd' && wt.validBasicSchema(evt.body)) {
+                if(evt.headerName == 'xpl-cmnd') {
                     console.log(evt);
                     if(evt.body.command == 'play') wt.play(evt.body);
                     if(evt.body.command == 'stop') wt.stop(evt.body);
