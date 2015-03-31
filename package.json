@@ -4,7 +4,7 @@
   "description": "Node JS layer to execute mplayer through xPL",
   "main": "./lib/xpl-alarm.js",
   "dependencies": {
-    "xpl-api": "~1.0.12",
+    "xpl-api": "Nodejs-XPL/xpl-api",
     "fs": "~0.0.2"
   },
   "keywords": [
