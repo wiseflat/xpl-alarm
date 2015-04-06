@@ -1,0 +1,13 @@
+[Unit]
+Description=Wiseflat xPL alarm daemon
+After=networking.service
+After=xpl-hub.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/node /opt/xpl-alarm/index.js
+
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
