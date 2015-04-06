@@ -39,7 +39,7 @@ wt.init(function(error, xpl) {
 			if(evt.body.command == 'loop') wt.loop(evt.body);
 			if(evt.body.command == 'timelimit') wt.timeLimit(evt.body);
 			//if(evt.body.command == 'stopTimeLimit') wt.stopTimeLimit(evt.body);
-                }else console.log('wt.configHash.enable=',wt.configHash.enable);
+		}
         });
 });
 
