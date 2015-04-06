@@ -1,5 +1,6 @@
 var xplalarm = require("./lib/xpl-alarm");
 var schema_alarmbasic = require('/etc/wiseflat/schemas/alarm.basic.json');
+var schema_alarmconfig = require('/etc/wiseflat/schemas/alarm.config.json');
 
 var wt = new xplalarm(null, {
 	//xplSource: 'bnz-shell.wiseflat'
@@ -14,7 +15,8 @@ wt.init(function(error, xpl) {
 	}
         
 	xpl.addBodySchema(schema_alarmbasic.id, schema_alarmbasic.definitions.body);
-
+	xpl.addBodySchema(schema_alarmconfig.id, schema_alarmconfig.definitions.body);
+	
         // Load config file into hash
         wt.readConfig();
         wt.readBasic();
@@ -24,17 +26,11 @@ wt.init(function(error, xpl) {
                 wt.sendConfig();
                 wt.sendBasic();
         }, 60 * 1000);
-        
-        //wt.play('http://www.tv-radio.com/station/france_inter_mp3/france_inter_mp3-128k.m3u');
-                
-        xpl.on("xpl:alarm.request", function(evt) {
-                if(evt.headerName == 'xpl-cmnd') wt.sendConfig();
+                        
+        xpl.on("xpl:alarm.config", function(evt) {
+                if(evt.headerName == 'xpl-cmnd') wt.writeConfig();
         });
         
-        /*xpl.on("xpl:alarm.config", function(evt) {
-                if(evt.headerName == 'xpl-cmnd' && wt.validConfigSchema(evt.body)) wt.read();
-        }); */
-
         xpl.on("xpl:alarm.basic", function(evt) {
                 if(evt.headerName == 'xpl-cmnd') {
                     console.log(evt);
