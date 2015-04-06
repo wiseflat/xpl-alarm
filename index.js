@@ -28,7 +28,7 @@ wt.init(function(error, xpl) {
         }, 60 * 1000);
                         
         xpl.on("xpl:alarm.config", function(evt) {
-                if(evt.headerName == 'xpl-cmnd') wt.writeConfig();
+                if(evt.headerName == 'xpl-cmnd') wt.writeConfig(ev.body);
         });
         
         xpl.on("xpl:alarm.basic", function(evt) {
