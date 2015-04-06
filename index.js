@@ -33,7 +33,6 @@ wt.init(function(error, xpl) {
         
         xpl.on("xpl:alarm.basic", function(evt) {
                 if(evt.headerName == 'xpl-cmnd' && wt.configHash.enable === true) {
-			console.log('wt.configHash.enable=',wt.configHash.enable);
 			if(evt.body.command == 'play') wt.play(evt.body);
 			if(evt.body.command == 'stop') wt.stop(evt.body);
 			if(evt.body.command == 'loop') wt.loop(evt.body);
