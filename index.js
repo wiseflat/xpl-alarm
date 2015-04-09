@@ -28,13 +28,11 @@ wt.init(function(error, xpl) {
         }, 60 * 1000);
                         
         xpl.on("xpl:alarm.config", function(evt) {
-                //if(wt.readTarget(evt.header.target) && evt.headerName == 'xpl-cmnd') wt.writeConfig(evt);
-		if(evt.headerName == 'xpl-cmnd') wt.writeConfig(evt);
+                if(wt.readTarget(evt.header.target) && evt.headerName == 'xpl-cmnd') wt.writeConfig(evt);
         });
         
         xpl.on("xpl:alarm.basic", function(evt) {
-		//if(wt.readTarget(evt.header.target) && wt.configHash.enable && evt.headerName == 'xpl-cmnd') {
-		if(wt.configHash.enable && evt.headerName == 'xpl-cmnd') {
+		if(wt.readTarget(evt.header.target) && wt.configHash.enable && evt.headerName == 'xpl-cmnd') {
 			if(evt.body.command == 'play') wt.play(evt);
 			if(evt.body.command == 'stop') wt.stop(evt);
 			if(evt.body.command == 'loop') wt.loop(evt);
