@@ -28,16 +28,15 @@ wt.init(function(error, xpl) {
         }, 60 * 1000);
                         
         xpl.on("xpl:alarm.config", function(evt) {
-                if(evt.headerName == 'xpl-cmnd') wt.writeConfig(evt.body);
+                if(evt.headerName == 'xpl-cmnd') wt.writeConfig(evt);
         });
         
         xpl.on("xpl:alarm.basic", function(evt) {
-                if(evt.headerName == 'xpl-cmnd' && wt.configHash.enable === true) {
+		if(wt.readTarget(evt.header.target) && wt.configHash.enable && evt.headerName == 'xpl-cmnd') {
 			if(evt.body.command == 'play') wt.play(evt);
 			if(evt.body.command == 'stop') wt.stop(evt);
 			if(evt.body.command == 'loop') wt.loop(evt);
 			if(evt.body.command == 'timelimit') wt.timeLimit(evt);
-			//if(evt.body.command == 'stopTimeLimit') wt.stopTimeLimit(evt.body);
 		}
         });
 });
