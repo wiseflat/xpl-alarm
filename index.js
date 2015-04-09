@@ -3,8 +3,8 @@ var schema_alarmbasic = require('/etc/wiseflat/schemas/alarm.basic.json');
 var schema_alarmconfig = require('/etc/wiseflat/schemas/alarm.config.json');
 
 var wt = new xplalarm(null, {
-	//xplSource: 'bnz-shell.wiseflat'
-        //xplLog: true
+        xplLog: false,
+	forceBodySchemaValidation: false
 });
 
 wt.init(function(error, xpl) { 
@@ -33,10 +33,10 @@ wt.init(function(error, xpl) {
         
         xpl.on("xpl:alarm.basic", function(evt) {
                 if(evt.headerName == 'xpl-cmnd' && wt.configHash.enable === true) {
-			if(evt.body.command == 'play') wt.play(evt.body);
-			if(evt.body.command == 'stop') wt.stop(evt.body);
-			if(evt.body.command == 'loop') wt.loop(evt.body);
-			if(evt.body.command == 'timelimit') wt.timeLimit(evt.body);
+			if(evt.body.command == 'play') wt.play(evt);
+			if(evt.body.command == 'stop') wt.stop(evt);
+			if(evt.body.command == 'loop') wt.loop(evt);
+			if(evt.body.command == 'timelimit') wt.timeLimit(evt);
 			//if(evt.body.command == 'stopTimeLimit') wt.stopTimeLimit(evt.body);
 		}
         });
