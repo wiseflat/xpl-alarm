@@ -8,7 +8,7 @@
     "fs": "~0.0.2"
   },
   "keywords": [
-    "XPL","nodejs","alarm"
+    "XPL","nodejs","store"
   ],
   "repository": { "type": "git", "url": "https://github.com/wiseflat/xpl-alarm.git" },
   "author": "Mathieu Garcia",
