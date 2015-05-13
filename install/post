@@ -1,0 +1,1 @@
+cp alarm.basic.json alarm.config.json /etc/wiseflat
